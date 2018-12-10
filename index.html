@@ -28,22 +28,22 @@
         <li><a href="#news"><b>Новини</b></a></li>
         <li><a href="#about"><b>Про нас</b></a></li>
         <li><a href="#contacts"><b>Контакти</b></a></li>
-        <li class="menu-mobile-button"><a href="#" data-toggle="modal" data-target="#myModal"><b>Вхід в кабінет</b></a></li>
+        <li class="menu-mobile-button"><a href="#" data-toggle="modal" data-target="#myModal" style="pointer-events: none;"><p><b>Вхід в кабінет</b></p></a></li>
       </ul>
     </div>
     <div class="modal fade" id="myModal" role="dialog">
       <div class="modal-dialog" style="position:relative;top:0;bottom:0;">
 
-        <div class="modal-content" style="background-color:rgba(64, 64, 64, .8);border-radius:25px;border:1px solid #ffffff;">
+        <div class="modal-content">
           <div class="modal-body" style="padding:20px;">
             <div class="form-group">
-              <input type="email" class="form-control" id="inputEmail" placeholder="Введіть ім'я" required style="border-radius:25px;height:40px;">
+              <input type="email" class="form-control" id="inputEmail" placeholder="Введіть ім'я" required>
             </div>
             <div class="form-group">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Введіть пароль" required style="border-radius:25px;height:40px;">
+              <input type="password" class="form-control" id="inputPassword" placeholder="Введіть пароль" required>
             </div>
             <div class="form-group" style="text-align:center;margin-bottom:0;">
-              <button type="button" class="btn btn-default btn-login" data-dismiss="modal" style="width:50%;height:40px;"><b>Ввійти</b></button>
+              <button type="button" class="btn btn-default btn-login w-50 h-50" data-dismiss="modal"><b>Ввійти</b></button>
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@
     <div id="header" class="container-fluid sticky">
       <div class="container clearfix">
         <div class="pull-right menu_btn d-lg-none">
-          <span class="icon fa fa-bars" aria-hidden="true" onclick="menuMobileOpen()"></span>
+          <span id="hambur" class="icon fa fa-bars" aria-hidden="true" onclick="menuMobileOpen()"></span>
         </div>
 
         <span class="logo pull-left">
@@ -70,7 +70,7 @@
             <li class="menu-item"><a href="#news"><b>Новини</b></a></li>
             <li class="menu-item"><a href="#about"><b>Про нас</b></a></li>
             <li class="menu-item"><a href="#contacts"><b>Контакти</b></a></li>
-            <li class="menu-item"><button class="btn btn-default btn-login" data-toggle="modal" data-target="#myModal"><p><b>Вхід в кабінет</b></p></button></li>
+            <li class="menu-item"><a href="#" data-toggle="modal" data-target="#myModal" style="pointer-events: none;"><p><b>Вхід в кабінет</b></p></a></li>
           </ul>
         </div>
       </div>
@@ -80,15 +80,15 @@
     <div id="content" class="container">
 
       <div id="" class="row">
-        <div class="offset-md-1 offset-lg-1 offset-xl-1"></div>
+        <div class="offset-md-1"></div>
 
-        <div class="col-xs-12 col-md-10 col-lg-10 col-xl-10">
+        <div class="col-xs-12 col-md-10">
 
-          <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
+          <div id="carouselHead" class="carousel slide carousel-fade" data-ride="carousel">
             <ol class="carousel-indicators">
-              <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-              <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+              <li data-target="#carouselHead" data-slide-to="0" class="active"></li>
+              <li data-target="#carouselHead" data-slide-to="1"></li>
+              <li data-target="#carouselHead" data-slide-to="2"></li>
             </ol>
             <div class="carousel-inner">
               <div class="carousel-item active">
@@ -101,38 +101,44 @@
                 <img class="d-block w-100" src="./img/3.jpg" alt="Third slide">
               </div>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#carouselHead" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#carouselHead" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
           </div>
 
-          <div class="offset-md-1 offset-lg-1 offset-xl-1"></div>
+          <div class="offset-md-1"></div>
         </div>
       </div>
 
-      <div class="row" id="news">
-        <div class="col-md-12 caption text-center">
+      <div id="instafeed" class="row">
+        <div class="col-12 caption text-center">
+          <span class="anchor-offset" id="news"></span>
           <p>Новини</p>
         </div>
+
       </div>
 
-      <div id="goods" class="row">
-        <div class="col-md-12 caption">
+
+      <div id="" class="row">
+        <div class="col-12 caption text-center">
+          <span class="anchor-offset" id="goods"></span>
           <p>Товари</p>
         </div>
+
       </div>
 
-      <div class="row" id="about">
+      <div class="row">
         <div class="col-12 caption text-center">
+          <span class="anchor-offset" id="about"></span>
           <p>Про нас</p>
         </div>
 
-        <div id="carouselAbout" class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 p-3 carousel slide carousel-fade" data-ride="carousel">
+        <div id="carouselAbout" class="col-xs-12 col-lg-8 p-3 pr-md-0 carousel slide carousel-fade" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselAbout" data-slide-to="0" class="active"></li>
             <li data-target="#carouselAbout" data-slide-to="1"></li>
@@ -167,7 +173,7 @@
           </a>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-4 col-xl-4 p-3">
+        <div class="col p-3">
           <div class="block-content">
             <p>Найкращий магазин електронних сигарет у Кам'янці-Подільському!</p>
             <p>На полицях нашого магазину - найбільший вибір преміальних рідин для електронних сигарет у місті. Усі серії мають варіації смаків та постійно оновлюються!</p>
@@ -175,19 +181,18 @@
             <p> Також у клієнтів є можливість спробувати, ознайомитись та придбати девайс для паріння. Вибір від простих бюджетних моделей до високорівневих і преміальних! Можна придбати під замовлення, а також ми проводимо обслуговування та ремонт у разі пошкоджень.</p>
           </div>
         </div>
-
       </div>
 
-      <div id="public" class="">
-        <div class="row">
-          <div class="col-md-12 caption">
-            <p>Публікації</p>
-          </div>
+      <div id="" class="">
+        <div class="col-12 caption">
+          <span class="anchor-offset" id="article"></span>
+          <p>Публікації</p>
         </div>
 
         <div class="col-12 p-0">
           <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-8 p-3 ">
+
+            <div class="col-xs-12 col-md-7 col-xl-8 p-3 pr-md-0 pb-md-0">
               <div class="block-content">
                 <h3> Як кинути палити за допомогою електронної сигарети?</h3>
                 <p>Куріння шкідливе - цей факт не викликає сумнівів. Якщо ви не палите взагалі, то не варто починати. Якщо ви хочете і можете кинути курити самостійно - робіть це якомога швидше.</p>
@@ -197,7 +202,7 @@
               </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-4 p-3 articleimg">
+            <div class="col p-3 pb-md-0 article-img">
               <img src="./img/ar1.jpg" class="img-fluid" alt="vaping">
             </div>
 
@@ -206,11 +211,12 @@
 
         <div class="col-12 p-0">
           <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-4 p-3 articleimg">
+
+            <div class="col order-2 order-md-1 p-3 pr-md-0 pb-md-0 article-img">
               <img src="./img/ar2.jpg" class="img-fluid" alt="vaping">
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-8 p-3">
+            <div class="col-xs-12 col-md-7 col-xl-8 order-1 order-md-1 p-3 pb-md-0">
               <div class="block-content">
                 <h3> Як правильно вибрати електронну сигарету і рідину?</h3>
                 <p>Щоб ваш задум був успішний – потрібно підібрати електронну сигарету, яка буде підходити саме вам. У нашому закладі вам розкажуть і покажуть всі варіанти, допоможуть визначитись. Ви не залишитесь наодинці зі своїм бажанням кинути палити. Тут ви отримаєте підтримку та детальну консультацію з використання. </p>
@@ -218,12 +224,14 @@
                 <p>І останнім кроком буде правильний підбір дози нікотину, який ще деякий час буде потрібен вашому організму. Поступово вміст нікотину в рідині потрібно зменшувати, і через деякий час ви зможете повністю відмовитись від шкідливої звички.</p>
               </div>
             </div>
+
           </div>
         </div>
 
         <div class="col-12 p-0">
           <div class="row">
-            <div class="col-xs-12 col-sm-12 col-md-7 col-lg-7 col-xl-8 p-3">
+
+            <div class="col-xs-12 col-md-7 col-xl-8 pr-md-0 pb-md-0 p-3">
               <div class="block-content">
                 <h3> Переваги електронної сигарети: </h3>
                 <p>- виключає канцерогени, смоли, шкідливі речовини, що утворюються в результаті горіння;<br> - пожежна безпека, немає процесу горіння;<br> - не є причиною пожовтіння зубів і нігтів;<br> - не залишає попелу, не потрібні попільничка і запальничка;<br> - відсутній ефект пасивного куріння;<br> - набагато менш шкідлива для організму;<br> - немає необхідності «докурювати»;<br> - не викликає причини виникнення кашлю і задишки, як при курінні тютюну;<br>                                - відновлюється нюх і смакові сприйняття;<br> - вартість використання вейп-пристроїв набагато нижче вартості куріння аналогових сигарет.<br></p>
@@ -231,7 +239,7 @@
               </div>
             </div>
 
-            <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 col-xl-4 p-3 articleimg">
+            <div class="col p-3 pb-md-0 article-img">
               <img src="./img/ar3.jpg" class="img-fluid" alt="vaping">
             </div>
           </div>
@@ -239,23 +247,29 @@
 
       </div>
 
-      <div class="row" id="contacts">
-        <div class="col-md-12 caption text-center">
+      <div class="">
+        <div class="col-12 caption text-center">
+          <span class="anchor-offset" id="contacts"></span>
           <p>Контакти</p>
         </div>
 
-        <div class="col-xs-12 col-sm-12 col-md-5 col-lg-4 col-xl-4 p-3">
-          <div class="block-content">
-            <p>Адреса:<br>м.Кам'янець-Подільський<br>вул. Симона Петлюри, 28<br>3 поверх, навпроти фіз.мату<br></p>
-            <p>Ми працюємо:<br>пн-пт 10:00-18:00<br>субота 11:00-16:00<br>неділя - вихідний</p>
-            <p>Телефон<br>+38 098 32 13 708</p>
-            <p><a class="btn-floating btn-lg btn-ins" type="button" role="button"><i class="fa fa-instagram"> vape.hovel_kp</i></a></p>
-            <p><a class="btn-floating btn-lg btn-fb" type="button" role="button"><i class="fa fa-facebook"> vapehovel.kp</i></a></p>
+        <div class="row">
+
+          <div class="col p-3">
+            <div class="block-content">
+              <p>Адреса:<br>м.Кам'янець-Подільський<br>вул. Симона Петлюри, 28<br>3 поверх, навпроти фіз.мату<br></p>
+              <p>Ми працюємо:<br>пн-пт 10:00-18:00<br>субота 11:00-16:00<br>неділя - вихідний</p>
+              <p>Телефон<br>+38 098 32 13 708</p>
+              <div class="w-100 p-1"></div>
+              <a href="https://www.facebook.com/vapehovel.kp" class="btn btn-fb" target="_blank" type="button" role="button"><i class="fa fa-facebook"></i> vapehovel.kp</a>
+              <div class="w-100 p-1"></div>
+              <a href="https://www.instagram.com/vape.hovel_kp" class="btn btn-ins" target="_blank" type="button" role="button"><i class="fa fa-instagram"></i> vape.hovel_kp</a>
+            </div>
           </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-7 col-lg-8 col-xl-8 p-3">
-          <div class="h-100">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2634.5234135839432!2d26.58528461566802!3d48.67635667927018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4733c78b7671973d%3A0x2cd52e334eecbee8!2sVape+Hovel+KP!5e0!3m2!1suk!2sua!4v1543339219159" width=100% height=100% frameborder="0" style="border:0" allowfullscreen></iframe>
+          <div class="col-xs-12 col-md-7 col-lg-8 p-3 pl-md-0">
+            <div class="h-100">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2634.5234135839432!2d26.58528461566802!3d48.67635667927018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4733c78b7671973d%3A0x2cd52e334eecbee8!2sVape+Hovel+KP!5e0!3m2!1suk!2sua!4v1543339219159" width=100% height=100% frameborder="0" style="border:0" allowfullscreen></iframe>
+            </div>
           </div>
         </div>
 

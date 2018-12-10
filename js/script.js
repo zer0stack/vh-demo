@@ -4,7 +4,7 @@ let feed = new Instafeed({
   clientId: "668116fe96b34ada9024flc0e6917bba",
   accessToken: "3413063057.668116f.f510426802f2400a8578c8110dd35a93",
   limit: 6,
-  target: "news",
+  target: "instafeed",
   sortBy: "most-recent",
   resolution: "standard_resolution",
   filter: function(image) {
@@ -35,6 +35,9 @@ let feed = new Instafeed({
 });
 
 feed.run();
+
+//var object = document.getElementById("hambur");
+//object.onclick = function() { menuMobileOpen() };
 
 let isMobileOpen = null;
 

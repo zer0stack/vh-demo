@@ -24,9 +24,10 @@
     <div id="gray_back" style="position:fixed; display: none;" onclick="menuMobileCollapse()"></div>
     <div id="menu-mobile" style="position:fixed; display: none;">
       <ul style="overflow-y:auto;" onclick="menuMobileCollapse()">
-        <li><a href="#"><b>Головна</b></a></li>
         <li><a href="#news"><b>Новини</b></a></li>
+        <li><a href="#goods"><b>Товари</b></a></li>
         <li><a href="#about"><b>Про нас</b></a></li>
+        <li><a href="#article"><b>Публікації</b></a></li>
         <li><a href="#contacts"><b>Контакти</b></a></li>
         <li class="menu-mobile-button"><a href="#" data-toggle="modal" data-target="#myModal" style="pointer-events: none;"><p><b>Вхід в кабінет</b></p></a></li>
       </ul>
@@ -57,19 +58,18 @@
           <span id="hambur" class="icon fa fa-bars" aria-hidden="true" onclick="menuMobileOpen()"></span>
         </div>
 
-        <span class="logo pull-left">
-          <a href="#" title="VapeHovel" rel="home">
-            <img class="img-fluid logo-image" src="./img/logo.png" alt="VapeHovel">
-            <p class="logo-text"><b>Vape Hovel</b><br>Кам'янець-Подільський</p>
-          </a>
-        </span>
-
-        <div class="pull-right d-none d-lg-block d-xl-block">
+        <a href="#" class="navbar-brand">
+          <img class="img-fluid logo-image pr-1" src="./img/logo.png" alt="VapeHovel" style="height:50px;">
+          <p class="logo-text float-right"><b>Vape Hovel</b><br>Кам'янець-Подільський</p>
+        </a>
+            
+        <div class="pull-right d-none d-lg-block">
           <ul class="menu-main clearfix">
-            <li class="menu-item"><a href="#"><b>Головна</b></a></li>
-            <li class="menu-item"><a href="#news"><b>Новини</b></a></li>
-            <li class="menu-item"><a href="#about"><b>Про нас</b></a></li>
-            <li class="menu-item"><a href="#contacts"><b>Контакти</b></a></li>
+            <li class="menu-item"><a href="#news">Новини</a></li>
+            <li class="menu-item"><a href="#goods">Товари</a></li>
+            <li class="menu-item"><a href="#about">Про нас</a></li>
+            <li class="menu-item"><a href="#article">Публікації</a></li>
+            <li class="menu-item"><a href="#contacts">Контакти</a></li>
             <li class="menu-item"><a href="#" data-toggle="modal" data-target="#myModal" style="pointer-events: none;"><p><b>Вхід в кабінет</b></p></a></li>
           </ul>
         </div>
@@ -82,7 +82,7 @@
       <div id="" class="row">
         <div class="offset-md-1"></div>
 
-        <div class="col-xs-12 col-md-10">
+        <div class="col-xs-12 col-md-10 pb-3">
 
           <div id="carouselHead" class="carousel slide carousel-fade" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -115,8 +115,8 @@
         </div>
       </div>
 
-      <div id="instafeed" class="row">
-        <div class="col-12 caption text-center">
+      <div id="instafeed" class="row pl-3">
+        <div class="col-12 p-0 pr-3 py-3 caption text-center">
           <span class="anchor-offset" id="news"></span>
           <p>Новини</p>
         </div>
@@ -124,21 +124,21 @@
       </div>
 
 
-      <div id="" class="row">
-        <div class="col-12 caption text-center">
+      <div id="" class="pl-3">
+        <div class="col-12 p-0 pr-3 py-3 caption text-center">
           <span class="anchor-offset" id="goods"></span>
           <p>Товари</p>
         </div>
 
       </div>
 
-      <div class="row">
-        <div class="col-12 caption text-center">
+      <div class="row pl-3">
+        <div class="col-12 p-0 pr-3 py-3 caption text-center">
           <span class="anchor-offset" id="about"></span>
           <p>Про нас</p>
         </div>
 
-        <div id="carouselAbout" class="col-xs-12 col-lg-8 p-3 pr-md-0 carousel slide carousel-fade" data-ride="carousel">
+        <div id="carouselAbout" class="col-xs-12 col-lg-8 p-0 pr-3 pb-3 carousel slide carousel-fade" data-ride="carousel">
           <ol class="carousel-indicators">
             <li data-target="#carouselAbout" data-slide-to="0" class="active"></li>
             <li data-target="#carouselAbout" data-slide-to="1"></li>
@@ -146,7 +146,7 @@
             <li data-target="#carouselAbout" data-slide-to="3"></li>
             <li data-target="#carouselAbout" data-slide-to="4"></li>
           </ol>
-          <div class="carousel-inner">
+          <div class="carousel-inner  border border-dark rounded">
             <div class="carousel-item active">
               <img class="d-block w-100 img-fluid" src="./img/4.jpg" alt="First slide">
             </div>
@@ -173,18 +173,20 @@
           </a>
         </div>
 
-        <div class="col p-3">
-          <div class="block-content">
-            <p>Найкращий магазин електронних сигарет у Кам'янці-Подільському!</p>
-            <p>На полицях нашого магазину - найбільший вибір преміальних рідин для електронних сигарет у місті. Усі серії мають варіації смаків та постійно оновлюються!</p>
-            <p> Приємні ціни та гнучка система знижок для постійних клієнтів. </p>
-            <p> Також у клієнтів є можливість спробувати, ознайомитись та придбати девайс для паріння. Вибір від простих бюджетних моделей до високорівневих і преміальних! Можна придбати під замовлення, а також ми проводимо обслуговування та ремонт у разі пошкоджень.</p>
-          </div>
+        <div class="col p-0 pr-3 pb-3">
+          <div class="card border-dark box-shadow h-100">
+            <div class="card-body align-items-start text-light">
+              <p class="card-text">Найкращий магазин електронних сигарет у Кам'янці-Подільському!</p>
+              <p class="card-text">На полицях нашого магазину - найбільший вибір преміальних рідин для електронних сигарет у місті. Усі серії мають варіації смаків та постійно оновлюються!</p>
+              <p class="card-text">Приємні ціни та гнучка система знижок для постійних клієнтів.</p>
+              <p class="card-text">Також у клієнтів є можливість спробувати, ознайомитись та придбати девайс для паріння. Вибір від простих бюджетних моделей до високорівневих і преміальних! Можна придбати під замовлення, а також ми проводимо обслуговування та ремонт у разі пошкоджень.</p>
+            </div>
+            </div>
         </div>
       </div>
 
-      <div id="" class="">
-        <div class="col-12 caption">
+      <div id="" class="pl-3">
+        <div class="col-12 p-0 pr-3 py-3 caption text-center">
           <span class="anchor-offset" id="article"></span>
           <p>Публікації</p>
         </div>
@@ -192,18 +194,22 @@
         <div class="col-12 p-0">
           <div class="row">
 
-            <div class="col-xs-12 col-md-7 col-xl-8 p-3 pr-md-0 pb-md-0">
-              <div class="block-content">
-                <h3> Як кинути палити за допомогою електронної сигарети?</h3>
-                <p>Куріння шкідливе - цей факт не викликає сумнівів. Якщо ви не палите взагалі, то не варто починати. Якщо ви хочете і можете кинути курити самостійно - робіть це якомога швидше.</p>
-                <p>А якщо ви не хочете або не можете відмовитися від куріння, але бажаєте робити це з найменшими наслідками для здоров'я, то електронна сигарета - це ваш вибір.</p>
-                <p>Електронна сигарета - це пристрій, який імітує процес куріння.</p>
-                <p>Електронні парогенератори не схожі на вигляд на аналогові сигарети, так як вони складаються з акумулятора, нагрівального елементу і атомайзера - картриджа з рідиною. Акумулятор подає напругу на нитку розжарення в атомайзери, і вона миттєво розжарюється. В результаті чого рідина випаровується, утворюючи пар, який візуально дуже схожий на дим звичайної сигарети. Так як заправка для електронних випарників містить нікотин (є рідини, в яких він відсутній), то організм відчуває надходження нікотину, іншими словами - людина «накурюється»</p>
+            <div class="col-xs-12 col-md-7 col-xl-8 p-0 pr-3 pb-3">
+              <div class="card border-dark box-shadow h-100">
+                <div class="card-body align-items-start text-light">
+                  <h3 class="card-title mb-0 pb-2">
+                    <p>Як кинути палити за допомогою електронної сигарети?</p>
+                  </h3>
+                  <p class="card-text">Куріння шкідливе - цей факт не викликає сумнівів. Якщо ви не палите взагалі, то не варто починати. Якщо ви хочете і можете кинути курити самостійно - робіть це якомога швидше.</p>
+                  <p class="card-text">А якщо ви не хочете або не можете відмовитися від куріння, але бажаєте робити це з найменшими наслідками для здоров'я, то електронна сигарета - це ваш вибір.</p>
+                  <p class="card-text">Електронна сигарета - це пристрій, який імітує процес куріння.</p>
+                  <p class="card-text">Електронні парогенератори не схожі на вигляд на аналогові сигарети, так як вони складаються з акумулятора, нагрівального елементу і атомайзера - картриджа з рідиною. Акумулятор подає напругу на нитку розжарення в атомайзери, і вона миттєво розжарюється. В результаті чого рідина випаровується, утворюючи пар, який візуально дуже схожий на дим звичайної сигарети. Так як заправка для електронних випарників містить нікотин (є рідини, в яких він відсутній), то організм відчуває надходження нікотину, іншими словами - людина «накурюється»</p>
+                </div>
               </div>
             </div>
 
-            <div class="col p-3 pb-md-0 article-img">
-              <img src="./img/ar1.jpg" class="img-fluid" alt="vaping">
+            <div class="col p-0 pr-3 pb-3 article-img">
+              <img src="./img/ar1.jpg" class="img-fluid border border-dark rounded" alt="vaping">
             </div>
 
           </div>
@@ -212,17 +218,23 @@
         <div class="col-12 p-0">
           <div class="row">
 
-            <div class="col order-2 order-md-1 p-3 pr-md-0 pb-md-0 article-img">
-              <img src="./img/ar2.jpg" class="img-fluid" alt="vaping">
+            <div class="col order-2 order-md-1 p-0 pr-3 pb-3 article-img">
+              <img src="./img/ar2.jpg" class="img-fluid border border-dark rounded" alt="vaping">
             </div>
 
-            <div class="col-xs-12 col-md-7 col-xl-8 order-1 order-md-1 p-3 pb-md-0">
-              <div class="block-content">
-                <h3> Як правильно вибрати електронну сигарету і рідину?</h3>
-                <p>Щоб ваш задум був успішний – потрібно підібрати електронну сигарету, яка буде підходити саме вам. У нашому закладі вам розкажуть і покажуть всі варіанти, допоможуть визначитись. Ви не залишитесь наодинці зі своїм бажанням кинути палити. Тут ви отримаєте підтримку та детальну консультацію з використання. </p>
-                <p>Наступним кроком буде підбір рідини. Тут вже справа лише у вашому смаку. Вибір у «Vape Hovel» найбільший у місті, тож з пустими руками ви не залишитись. Різні аромати, концентрація, лише якісні складові та перевірені виробники - ви знайдете те, що саме вам довподоби! </p>
-                <p>І останнім кроком буде правильний підбір дози нікотину, який ще деякий час буде потрібен вашому організму. Поступово вміст нікотину в рідині потрібно зменшувати, і через деякий час ви зможете повністю відмовитись від шкідливої звички.</p>
+            <div class="col-xs-12 col-md-7 col-xl-8 order-1 order-md-2 p-0 pr-3 pb-3">
+
+              <div class="card border-dark box-shadow h-100">
+                <div class="card-body align-items-start text-light">
+                  <h3 class="card-title mb-0 pb-2">
+                    <p>Як правильно вибрати електронну сигарету і рідину?</p>
+                  </h3>
+                  <p class="card-text">Щоб ваш задум був успішний – потрібно підібрати електронну сигарету, яка буде підходити саме вам. У нашому закладі вам розкажуть і покажуть всі варіанти, допоможуть визначитись. Ви не залишитесь наодинці зі своїм бажанням кинути палити. Тут ви отримаєте підтримку та детальну консультацію з використання. </p>
+                  <p class="card-text">Наступним кроком буде підбір рідини. Тут вже справа лише у вашому смаку. Вибір у «Vape Hovel» найбільший у місті, тож з пустими руками ви не залишитись. Різні аромати, концентрація, лише якісні складові та перевірені виробники - ви знайдете те, що саме вам довподоби! </p>
+                  <p class="card-text">І останнім кроком буде правильний підбір дози нікотину, який ще деякий час буде потрібен вашому організму. Поступово вміст нікотину в рідині потрібно зменшувати, і через деякий час ви зможете повністю відмовитись від шкідливої звички.</p>    
+                </div>  
               </div>
+
             </div>
 
           </div>
@@ -231,52 +243,82 @@
         <div class="col-12 p-0">
           <div class="row">
 
-            <div class="col-xs-12 col-md-7 col-xl-8 pr-md-0 pb-md-0 p-3">
-              <div class="block-content">
-                <h3> Переваги електронної сигарети: </h3>
-                <p>- виключає канцерогени, смоли, шкідливі речовини, що утворюються в результаті горіння;<br> - пожежна безпека, немає процесу горіння;<br> - не є причиною пожовтіння зубів і нігтів;<br> - не залишає попелу, не потрібні попільничка і запальничка;<br> - відсутній ефект пасивного куріння;<br> - набагато менш шкідлива для організму;<br> - немає необхідності «докурювати»;<br> - не викликає причини виникнення кашлю і задишки, як при курінні тютюну;<br>                                - відновлюється нюх і смакові сприйняття;<br> - вартість використання вейп-пристроїв набагато нижче вартості куріння аналогових сигарет.<br></p>
-                <p>Якщо ви дбаєте про своє здоров'я і про здоров'я ваших рідних і близьких, купіть собі електронну сигарету, або зробіть подарунок коханій людині, якa не може самостійно відмовитися від тютюнопаління. А ми допоможемо Вам у виборі!</p>
+            <div class="col-xs-12 col-md-7 col-xl-8 p-0 pr-3 pb-3">
+
+              <div class="card border-dark box-shadow h-100">
+                <div class="card-body align-items-start text-light">
+                  <h3 class="card-title mb-0 pb-2">
+                    <p>Переваги електронної сигарети:</p>
+                  </h3>
+
+                  <p class="card-text">- виключає канцерогени, смоли, шкідливі речовини, що утворюються в результаті горіння;
+                    <br> - пожежна безпека, немає процесу горіння;
+                    <br> - не є причиною пожовтіння зубів і нігтів;
+                    <br> - не залишає попелу, не потрібні попільничка і запальничка;
+                    <br> - відсутній ефект пасивного куріння;
+                    <br> - набагато менш шкідлива для організму;
+                    <br> - немає необхідності «докурювати»;
+                    <br> - не викликає причини виникнення кашлю і задишки, як при курінні тютюну;
+                    <br> - відновлюється нюх і смакові сприйняття;
+                    <br> - вартість використання вейп-пристроїв набагато нижче вартості куріння аналогових сигарет.
+                  </p>
+                  <p class="card-text">Якщо ви дбаєте про своє здоров'я і про здоров'я ваших рідних і близьких, купіть собі електронну сигарету, або зробіть подарунок коханій людині, якa не може самостійно відмовитися від тютюнопаління. А ми допоможемо Вам у виборі!</p>
+                </div>
               </div>
+
             </div>
 
-            <div class="col p-3 pb-md-0 article-img">
-              <img src="./img/ar3.jpg" class="img-fluid" alt="vaping">
+            <div class="col p-0 pr-3 pb-3 article-img">
+              <img src="./img/ar3.jpg" class="img-fluid border border-dark rounded" alt="vaping">
             </div>
           </div>
         </div>
 
       </div>
 
-      <div class="">
-        <div class="col-12 caption text-center">
+      <div class="pl-3">
+        <div class="col-12 p-0 pr-3 py-3 caption text-center">
           <span class="anchor-offset" id="contacts"></span>
           <p>Контакти</p>
         </div>
 
         <div class="row">
 
-          <div class="col p-3">
-            <div class="block-content">
-              <p>Адреса:<br>м.Кам'янець-Подільський<br>вул. Симона Петлюри, 28<br>3 поверх, навпроти фіз.мату<br></p>
-              <p>Ми працюємо:<br>пн-пт 10:00-18:00<br>субота 11:00-16:00<br>неділя - вихідний</p>
-              <p>Телефон<br>+38 098 32 13 708</p>
-              <div class="w-100 p-1"></div>
-              <a href="https://www.facebook.com/vapehovel.kp" class="btn btn-fb" target="_blank" type="button" role="button"><i class="fa fa-facebook"></i> vapehovel.kp</a>
-              <div class="w-100 p-1"></div>
-              <a href="https://www.instagram.com/vape.hovel_kp" class="btn btn-ins" target="_blank" type="button" role="button"><i class="fa fa-instagram"></i> vape.hovel_kp</a>
+          <div class="col p-0 pr-3 pb-3">
+            <div class="card border-dark box-shadow">
+              <div class="card-body align-items-start text-light">
+                <h5 class="card-title mb-0 pb-2">
+                  <p>Адреса:</p>
+                </h5>
+                <p class="card-text">м.Кам'янець-Подільський<br>вул. Симона Петлюри, 28<br>3 поверх, навпроти фіз.мату<br></p>
+                <h5 class="card-title mb-0 py-2">
+                  <p>Ми працюємо:</p>
+                </h5>
+                <p class="card-text">пн-пт 10:00-18:00<br>субота 11:00-16:00<br>неділя - вихідний</p>
+
+                <h5 class="card-title mb-0 py-2">
+                  <p>Телефон:</p>
+                </h5>
+                <p class="card-text pb-2">+38 098 32 13 708</p>
+                
+                <a href="https://www.facebook.com/vapehovel.kp" class="btn btn-primary btn-fb btn-dark" target="_blank" type="button" role="button"><i class="fa fa-facebook"></i> vapehovel.kp</a>
+                <div class="w-100 p-1"></div>
+                <a href="https://www.instagram.com/vape.hovel_kp" class="btn btn-primary btn-ins btn-dark" target="_blank" type="button" role="button"><i class="fa fa-instagram"></i> vape.hovel_kp</a>
+              </div>
             </div>
           </div>
-          <div class="col-xs-12 col-md-7 col-lg-8 p-3 pl-md-0">
-            <div class="h-100">
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2634.5234135839432!2d26.58528461566802!3d48.67635667927018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4733c78b7671973d%3A0x2cd52e334eecbee8!2sVape+Hovel+KP!5e0!3m2!1suk!2sua!4v1543339219159" width=100% height=100% frameborder="0" style="border:0" allowfullscreen></iframe>
+          <div class="col-xs-12 col-md-7 col-lg-8 p-0 pr-3 pb-3">
+            <div class="card box-shadow h-100">
+              <iframe class="border border-dark rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2634.5234135839432!2d26.58528461566802!3d48.67635667927018!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4733c78b7671973d%3A0x2cd52e334eecbee8!2sVape+Hovel+KP!5e0!3m2!1suk!2sua!4v1543339219159" width=100% height=100% frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
+            
           </div>
         </div>
 
       </div>
 
       <div id="footer" class="row">
-        <div class="col-12 footer-content text-center">
+        <div class="col-12 footer-content footer-copyright text-light py-3 text-center border-top border-dark">
           <p>Vape Hovel ©</p>
         </div>
       </div>

@@ -19,9 +19,9 @@ let feed = new Instafeed({
 
     return true;
   },
-  template:   '<div class="col-xs-12 col-sm-6 col-md-4 p-3">' +
+  template:   '<div class="col-xs-12 col-sm-6 col-md-4 p-0 pr-3 pb-3">' +
               '<a href="{{link}}" target="_blank">' +
-              '<div class="img-featured-container">' +
+              '<div class="img-featured-container  border border-dark rounded">' +
               '<div class="img-backdrop"></div>' +
               '<div class="description-container">' +
               '<p class="caption">{{model.short_caption}}</p>' +
@@ -36,8 +36,10 @@ let feed = new Instafeed({
 
 feed.run();
 
-//var object = document.getElementById("hambur");
-//object.onclick = function() { menuMobileOpen() };
+$(document).ready(function() {
+  $('#content').show();
+  $('#msg').hide();
+});
 
 let isMobileOpen = null;
 

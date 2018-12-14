@@ -5,7 +5,7 @@ function instafeed() {
     clientId: "668116fe96b34ada9024flc0e6917bba",
     accessToken: "3413063057.668116f.f510426802f2400a8578c8110dd35a93",
     limit: 6,
-    target: "instafeed",
+    target: "news",
     sortBy: "most-recent",
     resolution: "standard_resolution",
     filter: function(image) {
@@ -65,8 +65,8 @@ function menuExpand( $body, $grayBack, $menuMobile ) {
 }
 
 function menuCollapse( $body, $grayBack, $menuMobile ) {
-  if ( $body.length && $grayBack.length && $menuMobile ) {
 
+  if ( $body.length && $grayBack.length && $menuMobile ) {
     if ( !$grayBack.queue( "fx" ).length && !$menuMobile.queue( "fx" ).length ) {
       $grayBack.fadeOut( {
         duration: 250,
@@ -92,40 +92,99 @@ function menuCollapse( $body, $grayBack, $menuMobile ) {
   return true;
 }
 
+/*
+function body_parallax_element( selector, context ) {
+  context = context || document;
+  let elements = context.querySelectorAll( selector );
+
+  return Array.prototype.slice.call( elements );
+}
+*/
+
 $( document ).ready( function() {
   let $body = $( "body" );
   let $grayBack = $( "#gray_back" );
   let $menuMobile = $( "#menu-mobile" );
 
+  $( "#container" ).parallax( { 
+    imageSrc: './img/background.jpg',
+    speed: 0.4,
+    positionX: "left",
+    positionY: "top",
+    naturalWidth: 1920
+  } );
+
   instafeed();
 
-  $( "#hamburger-menu-btn" ).on( "click", function() {
+  $( "#header" ).on( "click", "#hamburger-menu-btn", function() {
     menuExpand( $body, $grayBack, $menuMobile );
   });
 
-  $( "#gray_back, #menu-mobile a" ).on( "click", function() {
+  $( "#container" ).on( "click", "#gray_back, #menu-mobile a", function() {
     menuCollapse( $body, $grayBack, $menuMobile );
   });
 
+  // Change header opacity on scroll down
   $( document ).on( "scroll", function() {
-    if ( $( this ).scrollTop() > $( "#header" ).height() ) {
-      $( "#header" ).animate( {
+    let $header = $( "#header" );
+
+    if ( $( this ).scrollTop() > $header.height() ) {
+      $header.animate( {
         opacity: "0.95"
       }, 10 );
     } else {
-      $( "#header" ).animate( {
+      $header.animate( {
         opacity: "1"
       }, 10 );
     }
   });
-  
+
+  // Add smooth scrolling to all links with .link class
+  $( "#container" ).on( "click", ".link", function( event ) {
+
+    if ( this.hash !== "" ) {
+      event.preventDefault();
+
+      let hash = this.hash;
+      let headerHeight = $( "#header" ).height();
+
+      // console.log( hash );
+      
+      $( "html, body" ).animate( {
+        scrollTop: $( hash ).offset().top - headerHeight
+      }, 800, function() {
+        //window.location.hash = hash;
+      });
+    } else {
+      // console.log( hash );
+    }
+
+  });
+
+  /*
+  window.addEventListener( "scroll", function() {
+
+    let scrolledHeight = window.pageYOffset;
+    body_parallax_element( "#container" ).forEach( function( el, index, array ) {
+      let limit = el.offsetTop + el.offsetHeight;
+
+      if( scrolledHeight > el.offsetTop && scrolledHeight <= limit ) {
+        let offsetStep = ( scrolledHeight - el.offsetTop ) / 2;
+        el.style.backgroundPositionY = offsetStep + "px";
+      } else {
+        el.style.backgroundPositionY = "0";
+      }
+
+    });
+  });
+  */
+
 });
 
 $( window ).on( "load", function() {
-  $( "body" ).animate({
-    height: [ "toggle", "swing" ],
-    opacity: "toggle"
-  }, 1000, "linear", function() {
-    
-  });
+
+  $( "#preloader" ).fadeOut( "slow", function() {
+    $( this ).remove();
+  } );
+
 });

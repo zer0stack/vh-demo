@@ -22,7 +22,7 @@ function instafeed() {
     },
     template:   '<div class="col-xs-12 col-sm-6 col-md-4 p-3">' +
                 '<a href="{{link}}" target="_blank">' +
-                '<div class="img-featured-container  border border-dark rounded">' +
+                '<div class="img-featured-container border border-dark rounded">' +
                 '<div class="img-backdrop"></div>' +
                 '<div class="description-container">' +
                 '<p class="caption">{{model.short_caption}}</p>' +
@@ -35,97 +35,118 @@ function instafeed() {
                 '</div>'
   });
 
-  return feed.run();
+  try {
+    feed.run();
+  }
+  catch( error ) {
+    console.error( error );
+    console.log( "catch" );
+  }
+  
+  return true;
 }
 
-function menuExpand( $body, $grayBack, $menuMobile ) {
-  if ( $body.length && $grayBack.length && $menuMobile ) {
+function menuToggle( { menu, backdrop, duration = 200, scrollOff = true } ) {
+  let body = $( "body" );
+  let backdropState;
 
-    if ( !$grayBack.queue( "fx" ).length && !$menuMobile.queue( "fx" ).length ) {
-      $grayBack.fadeIn( {
-        duration: 200,
-        start:function() {
-          $menuMobile.animate( {
-            "left": "+=100%"
-          }, 400 );
-          $body.css( { overflow: "hidden" } );
-        }
-      });
+  if ( backdrop.length ) {
+    if ( !backdrop.queue( "fx" ).length ) {
+      backdropState = 1;
     } else {
-      //console.log( "The expand animation is not over!" );
+      backdropState = 0;
+    }
+  } else {
+    backdropState = -1;
+  }
+
+  if ( menu.length && !menu.queue( "fx" ).length ) {
+    
+    if ( backdropState !== 0 ) {
+
+      if ( menu.attr( "class" ) === "active" ) {
+        menu.animate( {
+          "left": "-=100%"
+        }, {
+          duration: duration,
+          start: function() {
+            if ( backdropState ) {
+              backdrop.fadeOut( {
+                duration: duration
+              } );
+            }
+          },
+          complete: function() {
+            menu.removeClass( "active" );
+            if ( scrollOff ) {
+              body.css( { overflow: "auto" } );
+            }
+          }
+        } );
+      } else {
+        menu.animate( {
+          "left": "+=100%"
+        }, {
+          duration: duration,
+          start: function() {
+            if ( scrollOff ) {
+              body.css( { overflow: "hidden" } );
+            }
+            if ( backdropState ) {
+              backdrop.fadeIn( {
+                duration: duration
+              } );
+            }
+          },
+          complete: function() {
+            menu.addClass( "active" );
+          }
+        } );
+      }
+    } else {
+      //console.log( "backdrop is not exist or animated" );
       return false;
     }
-    
+  
   } else {
-    //console.log( "Not all elements for menuExpand() found!" );
+    //console.log( "menu is not exist or animated" );
     return false;
   }
 
   return true;
 }
 
-function menuCollapse( $body, $grayBack, $menuMobile ) {
 
-  if ( $body.length && $grayBack.length && $menuMobile ) {
-    if ( !$grayBack.queue( "fx" ).length && !$menuMobile.queue( "fx" ).length ) {
-      $grayBack.fadeOut( {
-        duration: 250,
-        start: function() {
-          $menuMobile.animate( {
-            "left": "-=100%"
-          }, 250 );
-        },
-        complete:function() {
-          $body.css( { overflow: "auto" } );
-        }
-      });
-    } else {
-      //console.log( "The collapse animation is not over!" );
-      return false;
-    }
-    
-  } else {
-    //console.log( "Not all elements for menuCollapse() found!" );
-    return false;
-  }
-
-  return true;
-}
-
-/*
-function body_parallax_element( selector, context ) {
-  context = context || document;
-  let elements = context.querySelectorAll( selector );
-
-  return Array.prototype.slice.call( elements );
-}
-*/
 
 $( document ).ready( function() {
-  let $body = $( "body" );
   let $grayBack = $( "#gray_back" );
   let $menuMobile = $( "#menu-mobile" );
 
-  $( "#container" ).parallax( { 
-    imageSrc: './img/background.jpg',
-    speed: 0.4,
-    positionX: "left",
-    positionY: "top",
-    naturalWidth: 1920
-  } );
+  //instafeed();
 
-  instafeed();
-
+  // menu expand
   $( "#header" ).on( "click", "#hamburger-menu-btn", function() {
-    menuExpand( $body, $grayBack, $menuMobile );
+    menuToggle( {
+      menu: $menuMobile,
+      backdrop: $grayBack, 
+      duration: 500,
+      scrollOff: true 
+    } );
   });
 
+  // menu collapse
   $( "#container" ).on( "click", "#gray_back, #menu-mobile a", function() {
-    menuCollapse( $body, $grayBack, $menuMobile );
+    menuToggle( {
+      menu: $menuMobile,
+      backdrop: $grayBack, 
+      duration: 400,
+      scrollOff: true 
+    } );
   });
 
   // Change header opacity on scroll down
-  $( document ).on( "scroll", function() {
+  /*
+  $( window ).on( "scroll", function() {
     let $header = $( "#header" );
 
     if ( $( this ).scrollTop() > $header.height() ) {
@@ -138,17 +159,15 @@ $( document ).ready( function() {
       }, 10 );
     }
   });
+  */
 
-  // Add smooth scrolling to all links with .link class
-  $( "#container" ).on( "click", ".link", function( event ) {
+  $( "#header, #menu-mobile" ).on( "click", "a", function( event ) {
 
     if ( this.hash !== "" ) {
       event.preventDefault();
 
       let hash = this.hash;
       let headerHeight = $( "#header" ).height();
-
-      // console.log( hash );
       
       $( "html, body" ).animate( {
         scrollTop: $( hash ).offset().top - headerHeight
@@ -160,24 +179,7 @@ $( document ).ready( function() {
     }
 
   });
-
-  /*
-  window.addEventListener( "scroll", function() {
-
-    let scrolledHeight = window.pageYOffset;
-    body_parallax_element( "#container" ).forEach( function( el, index, array ) {
-      let limit = el.offsetTop + el.offsetHeight;
-
-      if( scrolledHeight > el.offsetTop && scrolledHeight <= limit ) {
-        let offsetStep = ( scrolledHeight - el.offsetTop ) / 2;
-        el.style.backgroundPositionY = offsetStep + "px";
-      } else {
-        el.style.backgroundPositionY = "0";
-      }
-
-    });
-  });
-  */
+  
 
 });
 

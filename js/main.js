@@ -1,9 +1,9 @@
 function instafeed() {
   let feed = new Instafeed({
     get: "user",
-    userId: 3413063057,
-    clientId: "668116fe96b34ada9024flc0e6917bba",
-    accessToken: "3413063057.668116f.f510426802f2400a8578c8110dd35a93",
+    userId: 1234567890,
+    clientId: "",
+    accessToken: "",
     limit: 6,
     target: "news",
     sortBy: "most-recent",
